@@ -2,7 +2,10 @@ require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
 task :console do
-  require 'irb'
+  def reload!
+    load_all './'
+  end
   ARGV.clear
-  IRB.start
+  Pry.start
 end
+
